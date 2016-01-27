@@ -3,7 +3,7 @@
 Plugin Name: Barracuda
 Plugin URI:  http://fusionfarm.com
 Description: This describes barracuda plugin in a short sentence
-Version:     1.0
+Version:     1.0.0
 Author:      Fusionfarm
 Author URI:  http://fusionfarm.com
 License:     GPL2
