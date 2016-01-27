@@ -7,7 +7,7 @@ Author:      Fusionfarm
 Author URI:  http://fusionfarm.com
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
-Version: 1.0.0
+Version: 1.0.3
 Domain Path: /languages
 Text Domain: Barracuda
 */
