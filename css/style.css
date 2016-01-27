@@ -1,0 +1,40 @@
+.barracuda-clear {
+	clear: both;
+}
+#barracuda-settings-page-title {
+	margin-bottom: 20px;
+}
+.barracuda-section-title {
+	border-bottom:1px solid #CCC;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.barracuda-section-title h3 {
+	margin: 0;
+}
+.barracuda-option-wrapper {
+	margin-bottom: 10px;
+}
+.option-select-title {
+	float:left;
+	font-weight: bold;
+	width: 20%;
+}
+.barracuda-desc-text {
+	color: #B2B2B2;
+	font-size: 12px;
+	margin: 5px 0;
+}
+.option-select-wrapper {
+	float: left;
+	width: 80%;
+}
+.option-select-wrapper:after {
+	clear: both;
+}
+.radio-label {
+	margin-right: 10px;
+}
+#upload_image_button {
+	
+}
