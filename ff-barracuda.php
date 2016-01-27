@@ -3,7 +3,6 @@
 Plugin Name: Barracuda
 Plugin URI:  http://fusionfarm.com
 Description: This describes barracuda plugin in a short sentence
-Version:     1.0.0
 Author:      Fusionfarm
 Author URI:  http://fusionfarm.com
 License:     GPL2
@@ -12,7 +11,7 @@ Domain Path: /languages
 Text Domain: Barracuda
 */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-require_once( 'class-pluginupdater.php' );
+require_once( '../wp-content/mu-plugins/class-pluginupdater.php' );
 if ( is_admin() ) {
     new WPFDGitHubPluginUpdater( __FILE__, 'efry', "ff_barracuda" );
 }
