@@ -7,14 +7,18 @@ Author:      Fusionfarm
 Author URI:  http://fusionfarm.com
 License:     GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Version: 1.0.0
 Domain Path: /languages
 Text Domain: Barracuda
 */
+
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
-require_once( '../wp-content/mu-plugins/class-pluginupdater.php' );
+
+require_once( WPMU_PLUGIN_DIR . '/class-pluginupdater.php' );
 if ( is_admin() ) {
-    new WPFDGitHubPluginUpdater( __FILE__, 'efry', "ff_barracuda" );
+    new FFGitHubPluginUpdater( __FILE__, 'efry', "ff_barracuda" );
 }
+
 require(ABSPATH . WPINC . '/pluggable.php');
 
 global $current_user;
@@ -154,30 +158,30 @@ function remove_dashboard_meta() {
 }
 add_action( 'admin_menu', 'remove_dashboard_meta' );
 
-function remove_core_updates(){
-    global $wp_version;return(object) array('last_checked'=> time(),'version_checked'=> $wp_version,);
-}
-$core_updates = get_option('barracuda_wp_pre_site_transient_update_core');
-$plugin_updates = get_option('barracuda_wp_pre_site_transient_update_plugins');
-$theme_updates = get_option('barracuda_wp_pre_site_transient_update_themes');
+// function remove_core_updates(){
+//     global $wp_version;return(object) array('last_checked'=> time(),'version_checked'=> $wp_version,);
+// }
+// $core_updates = get_option('barracuda_wp_pre_site_transient_update_core');
+// $plugin_updates = get_option('barracuda_wp_pre_site_transient_update_plugins');
+// $theme_updates = get_option('barracuda_wp_pre_site_transient_update_themes');
 
-if( $current_user->user_login != 'webapps' && $current_user->user_login != 'project.team' ){
-    // if($core_updates == '0'){    
-        add_filter('pre_site_transient_update_core','remove_core_updates');
-    // } else {
-    //     remove_filter('pre_site_transient_update_core','remove_core_updates');
-    // }
-    // if($plugin_updates == '0'){
-        add_filter('pre_site_transient_update_plugins','remove_core_updates');
-    // } else {
-    //     remove_filter('pre_site_transient_update_plugins','remove_core_updates');
-    // }
-    // if($theme_updates == '0'){
-        add_filter('pre_site_transient_update_themes','remove_core_updates');
-    // } else {
-    //     remove_filter('pre_site_transient_update_themes','remove_core_updates');
-    // }
-}
+// if( $current_user->user_login != 'webapps' && $current_user->user_login != 'project.team' ){
+//     if($core_updates == '0'){    
+//         add_filter('pre_site_transient_update_core','remove_core_updates');
+//     } else {
+//         remove_filter('pre_site_transient_update_core','remove_core_updates');
+//     }
+//     if($plugin_updates == '0'){
+//         add_filter('pre_site_transient_update_plugins','remove_core_updates');
+//     } else {
+//         remove_filter('pre_site_transient_update_plugins','remove_core_updates');
+//     }
+//     if($theme_updates == '0'){
+//         add_filter('pre_site_transient_update_themes','remove_core_updates');
+//     } else {
+//         remove_filter('pre_site_transient_update_themes','remove_core_updates');
+//     }
+// }
 
 function custom_admin_logo() {
     $active_color = get_option('barracuda_active_color');
@@ -482,30 +486,27 @@ function custom_admin_logo() {
 }
 add_action('admin_enqueue_scripts', 'custom_admin_logo');
 
-if( $current_user->user_login != 'webapps' && $current_user->user_login != 'project.team' ){
-    function hide_barracuda(){
-        echo '
-            <style type="text/css">
-                #toplevel_page_ff-barracuda-forms-barracuda-settings-form {
-                    display: none;
-                }
-                .plugins #barracuda {
-                    display: none;
-                }
-                .plugin-title .row-actions {
-                    display:none;
-                }
-                .plugin-update-tr .update-message {
-                    display: none;
-                }
-                .wrap .add-new-h2, .wrap .add-new-h2:active {
-
-                }
-            </style>
-        ';
-    }
-    add_action('admin_enqueue_scripts', 'hide_barracuda');
-}
+// if( $current_user->user_login != 'webapps' && $current_user->user_login != 'project.team' ){
+//     function hide_barracuda(){
+//         echo '
+//             <style type="text/css">
+//                 #toplevel_page_ff-barracuda-forms-barracuda-settings-form {
+//                     display: none;
+//                 }
+//                 .plugins #barracuda {
+//                     display: none;
+//                 }
+//                 .plugin-title .row-actions {
+//                     display:none;
+//                 }
+//                 .plugin-update-tr .update-message {
+//                     display: none;
+//                 }
+//             </style>
+//         ';
+//     }
+//     add_action('admin_enqueue_scripts', 'hide_barracuda');
+// }
 
 
 //****** END ADD CLIENT LOGO TO WP ADMIN BAR ON ADMIN PAGES ******//
