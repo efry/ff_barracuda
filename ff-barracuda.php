@@ -12,6 +12,10 @@ Domain Path: /languages
 Text Domain: Barracuda
 */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
+require_once( 'class-pluginupdater.php' );
+if ( is_admin() ) {
+    new WPFDGitHubPluginUpdater( __FILE__, 'efry', "ff_barracuda" );
+}
 require(ABSPATH . WPINC . '/pluggable.php');
 
 global $current_user;
